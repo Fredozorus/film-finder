@@ -1,0 +1,93 @@
+/* Reset de base pour une cohérence entre navigateurs*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* En tête*/
+
+header{
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+}
+
+#search{
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    margin: 3rem auto; /* Ajoute de l'espace autour */
+    width: 80%; /* Réduit la largeur de la zone */
+    max-width: 600px; /* Limite la taille maximum */
+}
+
+#search input{
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px 5px 5px 5px; /* Coins arrondis seulement à gauche */
+    width: 100%; /* Prend toute la largeur disponible */
+    max-width: 500px; /* Limite la largeur */
+    margin: 0; /* Supprime tout espace extérieur */
+}
+
+#search button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px 5px 5px 5px; /* Coins arrondis seulement à droite */
+    cursor: pointer;
+}
+
+#search button:hover {
+     background-color: #0056b3;
+  }
+
+  /* Résultats */
+#results {
+    padding: 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  #results h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  #movieList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+  
+  .movie {
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+
+  .movie img {
+    max-width: 100%; /* L'image s'adapte à la largeur du conteneur */
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+  }
