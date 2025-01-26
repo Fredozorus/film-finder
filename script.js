@@ -1,6 +1,6 @@
 
 // Clé API
-const API_KEY="9bbb9e704823f6eee19f99cbf1f9d01f";
+import {API_KEY} from './config.js';
 const API_URL=`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=`
 
 // Selection des élémetns du DOM
@@ -48,10 +48,6 @@ function displayMovies(movies){
 
         movieList.appendChild(movieItem);
     });
-
-
-
-
 }
 
 searchButton.addEventListener("click", async() =>{
