@@ -1,20 +1,26 @@
 /* Reset de base pour une cohérence entre navigateurs*/
 html,
 body {
-  height: 100%; /* Assure que le conteneur principal occupe tout l'écran */
+  height: 100%;
+  /* Assure que le conteneur principal occupe tout l'écran */
   margin: 0;
 }
 
 .container {
   display: flex;
-  flex-direction: column; /* Empile les éléments verticalement */
-  min-height: 100vh; /* La hauteur du conteneur s'étire pour couvrir tout l'écran */
+  flex-direction: column;
+  /* Empile les éléments verticalement */
+  min-height: 100vh;
+  /* La hauteur du conteneur s'étire pour couvrir tout l'écran */
 }
+
 /* Main s'adapte à l'espace disponible */
 main {
-  flex: 1; /* Prend tout l'espace vertical restant */
+  flex: 1;
+  /* Prend tout l'espace vertical restant */
   padding: 1rem;
 }
+
 /* En tête*/
 
 header {
@@ -29,19 +35,26 @@ header {
   gap: 1rem;
   justify-content: center;
   align-items: center;
-  margin: 3rem auto; /* Ajoute de l'espace autour */
-  width: 80%; /* Réduit la largeur de la zone */
-  max-width: 600px; /* Limite la taille maximum */
+  margin: 3rem auto;
+  /* Ajoute de l'espace autour */
+  width: 80%;
+  /* Réduit la largeur de la zone */
+  max-width: 600px;
+  /* Limite la taille maximum */
 }
 
 #search input {
   padding: 0.5rem;
   font-size: 1rem;
   border: 1px solid #ccc;
-  border-radius: 5px 5px 5px 5px; /* Coins arrondis seulement à gauche */
-  width: 100%; /* Prend toute la largeur disponible */
-  max-width: 500px; /* Limite la largeur */
-  margin: 0; /* Supprime tout espace extérieur */
+  border-radius: 5px 5px 5px 5px;
+  /* Coins arrondis seulement à gauche */
+  width: 100%;
+  /* Prend toute la largeur disponible */
+  max-width: 500px;
+  /* Limite la largeur */
+  margin: 0;
+  /* Supprime tout espace extérieur */
 }
 
 #search button {
@@ -50,7 +63,8 @@ header {
   border: none;
   background-color: #007bff;
   color: #fff;
-  border-radius: 5px 5px 5px 5px; /* Coins arrondis seulement à droite */
+  border-radius: 5px 5px 5px 5px;
+  /* Coins arrondis seulement à droite */
   cursor: pointer;
 }
 
@@ -86,11 +100,44 @@ header {
 }
 
 .movie img {
-  max-width: 100%; /* L'image s'adapte à la largeur du conteneur */
+  max-width: 100%;
+  /* L'image s'adapte à la largeur du conteneur */
   height: auto;
   border-radius: 5px;
   margin-bottom: 1rem;
 }
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  width: 50%;
+  max-width: 600px;
+  text-align: center;
+  border-radius: 10px;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
 
 /* Footer reste en bas */
 footer {

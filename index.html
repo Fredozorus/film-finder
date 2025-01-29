@@ -1,38 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Film Finder</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="container">
-      <header>
-        <h1>Film Finder</h1>
-        <p>Recherchez des informations sur vos films préférés</p>
-      </header>
 
-      <main>
-        <section id="search">
-          <input
-            type="text"
-            id="searchInput"
-            placeholder="Entrez un titre de films"
-          />
-          <button id="searchButton">Rechercher</button>
-        </section>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Film Finder</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
 
-        <section id="results">
-          <div id="movieList"></div>
-        </section>
-      </main>
+<body>
+  <div class="container">
+    <header>
+      <h1>Film Finder</h1>
+      <p>Recherchez des informations sur vos films préférés</p>
+    </header>
 
-      <footer>
-        <p>&copy; 2025 Film Finder. Tous droits réservés.</p>
-      </footer>
+    <main>
+      <section id="search">
+        <input type="text" id="searchInput" placeholder="Entrez un titre de films" />
+        <button id="searchButton">Rechercher</button>
+      </section>
 
-      <script src="script.js" type="module" defer></script>
+      <section id="results">
+        <div id="movieList"></div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Film Finder. Tous droits réservés.</p>
+    </footer>
+  </div>
+
+  <div id="movieDetailsModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <div id="movieDetails"></div>
     </div>
-  </body>
+  </div>
+  <script src="script.js" type="module" defer></script>
+</body>
+
 </html>

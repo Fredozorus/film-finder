@@ -30,6 +30,7 @@ function displayMovies(movies) {
   movies.forEach((movie) => {
     const movieItem = document.createElement("div");
     movieItem.classList.add("movie");
+    movieItem.dataset.id = movie.id; // Stock l'ID du film dans un attribut.
 
     // Construire l'URL de l'affiche
     // Vérification et construction de l'URL de l'affiche
@@ -38,9 +39,8 @@ function displayMovies(movies) {
       : "https://dummyimage.com/500x750/cccccc/000000.png&text=Aucune+Affiche"; // Placeholder fiable
 
     movieItem.innerHTML = `
-       <img src="${posterUrl}" alt="${
-      movie.title
-    } Affiche" class="movie-poster">
+       <img src="${posterUrl}" alt="${movie.title
+      } Affiche" class="movie-poster">
         <h3>${movie.title}</h3>
         <p> Sorti en  : ${movie.release_date || "Date inconnue"}</p>
         <img >
@@ -48,8 +48,66 @@ function displayMovies(movies) {
         `;
 
     movieList.appendChild(movieItem);
+
+    movieItem.addEventListener("click", () => {
+      fetchMovieDetails(movie.id);
+    });
+
+
   });
 }
+
+async function fetchMovieDetails(movieId) {
+  try {
+    const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}&append_to_response=credits`);
+    const data = await response.json();
+    displayMovieDetails(data);
+  } catch (error) {
+    console.error("Erreur lors de la récupération des détails :", error);
+  }
+}
+
+function displayMovieDetails(movie) {
+  const modal = document.getElementById("movieDetailsModal");
+  const modalContent = document.getElementById("movieDetails")
+
+  const posterUrl = movie.poster_path
+    ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+    : "https://dummyimage.com/500x750/cccccc/000000.png&text=Aucune+Affiche";
+
+
+  const genres = movie.genres ? movie.genres.map((genre) => genre.name).join(", ") : "Non spécifié";
+  const cast = movie.credits && movie.credits.cast ? movie.credits.cast.slice(0, 5).map((actor) => actor.name).join(", ") : "Non disponible";
+
+  // Insérer les infos dans la modale
+  modalContent.innerHTML = `
+<img src="${posterUrl}" alt="${movie.title} Affiche" class="movie-poster">
+<h2>${movie.title}</h2>
+<p><strong>Genres :</strong> ${genres}</p>
+<p><strong>Date de sortie :</strong> ${movie.release_date || "Non disponible"}</p>
+<p><strong>Note :</strong> ${movie.vote_average} / 10</p>
+<p><strong>Durée :</strong> ${movie.runtime} minutes</p>
+<p><strong>Acteurs :</strong> ${cast}</p>
+<p>${movie.overview || "Pas de synopsis disponible."}</p>
+`;
+
+  // Afficher la modale
+  modal.style.display = "flex";
+
+}
+
+// Fermer la modale en cliquant sur le bouton "close"
+document.querySelector(".close").addEventListener("click", () => {
+  document.getElementById("movieDetailsModal").style.display = "none";
+});
+
+// Fermer la modale en cliquant en dehors du contenu
+window.addEventListener("click", (event) => {
+  const modal = document.getElementById("movieDetailsModal");
+  if (event.target === modal) {
+    modal.style.display = "none";
+  }
+});
 
 searchButton.addEventListener("click", async () => {
   const query = searchInput.value.trim();
@@ -61,3 +119,4 @@ searchButton.addEventListener("click", async () => {
   const movies = await fetchMovies(query);
   displayMovies(movies);
 });
+
