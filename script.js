@@ -69,7 +69,20 @@ async function fetchMovieDetails(movieId) {
 
 function displayMovieDetails(movie) {
   const modal = document.getElementById("movieDetailsModal");
-  const modalContent = document.getElementById("movieDetails")
+  const modalContent = document.querySelector(".modal-content");
+
+  modal.classList.add("show"); // Affichage fluide
+  modalContent.classList.add("show"); // Animation de zoom
+
+  modal.addEventListener("click", (event) => {
+    if (event.target === modal || event.target.classList.contains("close")) {
+      modal.classList.remove("show");
+      modalContent.classList.remove("show");
+      setTimeout(() => {
+        modal.style.display = "none"; // Cache après animation
+      }, 300);
+    }
+  });
 
   const posterUrl = movie.poster_path
     ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
