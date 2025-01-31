@@ -16,6 +16,25 @@
     </header>
 
     <main>
+      <div id="auth">
+        <h2>Inscription</h2>
+        <form id="signupForm">
+          <input type="text" id="signupName" placeholder="Nom" required />
+          <input type="email" id="signupEmail" placeholder="Email" required />
+          <input type="password" id="signupPassword" placeholder="Mot de passe" required />
+          <button type="submit">S'inscrire</button>
+        </form>
+
+        <h2>Connexion</h2>
+        <form id="loginForm">
+          <input type="email" id="loginEmail" placeholder="Email" required />
+          <input type="password" id="loginPassword" placeholder="Mot de passe" required />
+          <button type="submit">Se connecter</button>
+        </form>
+
+        <button id="logoutButton" style="display: none;">Déconnexion</button>
+      </div>
+
       <section id="search">
         <input type="text" id="searchInput" placeholder="Entrez un titre de films" />
         <button id="searchButton">Rechercher</button>

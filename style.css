@@ -6,6 +6,37 @@ body {
   margin: 0;
 }
 
+#auth {
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+}
+
+#auth input {
+  width: 100%;
+  padding: 8px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+#auth button {
+  width: 100%;
+  padding: 8px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+#auth button:hover {
+  background-color: #218838;
+}
+
+
+
 .container {
   display: flex;
   flex-direction: column;
