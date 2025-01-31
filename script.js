@@ -1,6 +1,6 @@
 // Clé API
-const API_URL = `http://localhost:5000/api/movies?q=`;
-const MOVIE_DETAILS_URL = "http://localhost:5000/api/movie/";
+const API_URL = `https://film-finder-03jj.onrender.com/api/movies?q=`;
+const MOVIE_DETAILS_URL = "https://film-finder-03jj.onrender.com/api/movie/";
 
 // Selection des élémetns du DOM
 const searchInput = document.getElementById("searchInput");
