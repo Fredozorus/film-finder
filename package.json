@@ -1,5 +1,6 @@
 {
   "name": "filmapp",
+  "start": "node server.js",
   "version": "1.0.0",
   "description": "",
   "type": "module",
