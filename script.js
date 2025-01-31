@@ -1,6 +1,6 @@
 // Clé API
-import { API_KEY } from "./config.js";
-const API_URL = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=`;
+const API_URL = `http://localhost:5000/api/movies?q=`;
+const MOVIE_DETAILS_URL = "http://localhost:5000/api/movie/";
 
 // Selection des élémetns du DOM
 const searchInput = document.getElementById("searchInput");
@@ -11,10 +11,15 @@ const movieList = document.getElementById("movieList");
 async function fetchMovies(query) {
   try {
     const response = await fetch(`${API_URL}${query}`);
+
+    // ✅ Vérifie si la réponse est OK
+    if (!response.ok) {
+      throw new Error(`Erreur API : ${response.status}`);
+    }
     const data = await response.json();
-    return data.results;
+    return data;
   } catch (error) {
-    console.error("Erreur lors de la récupération des données : ", error);
+    console.error("Erreur lors de la récupération des données :", error);
     return [];
   }
 }
@@ -57,9 +62,10 @@ function displayMovies(movies) {
   });
 }
 
+//Recuper les details d'un film
 async function fetchMovieDetails(movieId) {
   try {
-    const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}&append_to_response=credits`);
+    const response = await fetch(`${MOVIE_DETAILS_URL}${movieId}`);
     const data = await response.json();
     displayMovieDetails(data);
   } catch (error) {
@@ -67,6 +73,7 @@ async function fetchMovieDetails(movieId) {
   }
 }
 
+//Affiche les details d'un film
 function displayMovieDetails(movie) {
   const modal = document.getElementById("movieDetailsModal");
   const modalContent = document.querySelector(".modal-content");
@@ -122,6 +129,7 @@ window.addEventListener("click", (event) => {
   }
 });
 
+//Recherche un film quand on clique sur le bouton
 searchButton.addEventListener("click", async () => {
   const query = searchInput.value.trim();
   if (!query) {

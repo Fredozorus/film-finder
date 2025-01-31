@@ -1,0 +1,27 @@
+{
+  "name": "filmapp",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fredozorus/film-finder.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Fredozorus/film-finder/issues"
+  },
+  "homepage": "https://github.com/Fredozorus/film-finder#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "node-fetch": "^3.3.2"
+  }
+}
